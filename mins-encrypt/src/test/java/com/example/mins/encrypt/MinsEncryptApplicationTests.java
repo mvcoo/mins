@@ -31,6 +31,15 @@ class MinsEncryptApplicationTests {
     }
 
     @Test
+    void contextLoads3() throws Exception {
+        String result = mockMvc.perform(MockMvcRequestBuilders.get("/test/hello2")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content("{\"type\": 11}"))
+                .andReturn().getResponse().getContentAsString(StandardCharsets.UTF_8);
+        System.out.println(result);
+    }
+
+    @Test
     void contextLoads() throws Exception {
         String result = mockMvc.perform(MockMvcRequestBuilders.post("/test/world")
                         .contentType(MediaType.APPLICATION_JSON)
